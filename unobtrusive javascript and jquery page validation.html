@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Practice Work-2</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+
+	
+	
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+
+
+                if ($("form").valid()) {
+                    $("#success").show();
+					$("#error").hide();
+                    $("#success").addClass("green");
+                    event.preventDefault();
+                }
+				else
+				{
+				
+                    $("#success").hide();
+					$("#error").show();
+				}
+            });
+        });
+    </script>
+
+</head>
+
+<style>
+
+
+form label,
+form input {
+  border: 1;
+  margin-bottom: 3px;
+  display: block;
+  width: 15%;
+}
+
+
+.container {
+    margin: 25px auto;
+  }
+  
+form {
+    padding: 20px;
+  }
+
+.mandatory{
+    color: red;
+}
+
+button {
+    background-color: #555555;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+} 
+
+
+.field-validation-error {
+    color: red;
+}
+
+
+.success{
+    color: green;
+    font-weight: 100;
+    font-size: 25px;
+}
+
+.red{
+    color: red;
+}
+
+.greencolor
+{
+color:green
+}
+
+</style>
+
+<body>
+    <div class="container">
+        <form method="post">
+
+            <div>
+                <label for="username_id">Username :</label>
+               
+                <input type="text" name="username" id="username_id" placeholder="Enter your username" data-val="true" data-val-required="It's a mandatory field."
+                    data-val-length="please provide at least 6 characters" data-val-length-min="6" />
+
+                <span data-valmsg-for="username" data-valmsg-replace="true" class="field-validation-error" />
+
+            </div>
+
+            <div>
+                <label for="password_id">Password :</label>
+                
+                <input type="password" name="password" id="password_id" placeholder="Enter your password" data-val="true" data-val-required="It's a mandatory field."
+                    data-val-length="please provide at least 6 characters" data-val-length-min="6" />
+
+                <span data-valmsg-for="password" data-valmsg-replace="true" class="field-validation-error" />
+
+            </div>
+
+            <div>
+                <label for="phone_id">Phone :</label>
+                
+                <input type="text" name="phone" id="phone_id" placeholder="xxx xxx xxxx" data-val="true" data-val-required="It's a mandatory field."
+                    data-val-length="please provide at least 10 digits" data-val-length-min="10" data-val-number="Please enter a valid number"
+                />
+
+                <span data-valmsg-for="phone" data-valmsg-replace="true" class="field-validation-error" />
+
+            </div>
+
+            <button type="submit" value="Validate">Validate</button></br>
+            <div id= 'error' data-valmsg-summary="true">
+                <ul></ul>
+            </div>
+            <span id="success" class="greencolor" hidden>success</span>
+        </form>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
